@@ -1215,6 +1215,10 @@ PrefabInstance:
       propertyPath: _editorDebuggingOnly._mockUnityInputLocation
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114811608996724456, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
+      propertyPath: _updateTimeInMilliSeconds
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 135296336305408694, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: m_Enabled
       value: 0
