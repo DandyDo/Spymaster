@@ -9,10 +9,9 @@ public class CameraHandler : MonoBehaviour
     public float zoomOutMin = 20;
     public float zoomOutMax = 80;
 
-
     private void Start()
     {
-        // Position the main camera to point at the player's position
+        // Position the main camera at the player's position with offset
         transform.position = player.position + camOffset;
     }
 
@@ -21,7 +20,7 @@ public class CameraHandler : MonoBehaviour
         //Follow the player's position
         transform.position = player.position + camOffset;
 
-        // Rotate the camera around the player
+        // Rotate the camera around the player with one touch swipe
         if (Input.touchCount == 1)
         {
             Touch touchZero = Input.GetTouch(0);
@@ -31,10 +30,11 @@ public class CameraHandler : MonoBehaviour
             float touchZeroCurr = touchZero.position.x - touchZeroPrevPos.x;
 
             transform.RotateAround(player.position, Vector3.up, touchZeroCurr * 0.06f);
+            // assign the new value of the player location to the camera offset
             camOffset = transform.position - player.position;
         }
 
-        // Pinch-zoom the camera's field of view
+        // Pinch-zoom (2-touches) the camera's field of view
         if (Input.touchCount == 2)
         {
             Touch touchZero = Input.GetTouch(0);
@@ -54,7 +54,7 @@ public class CameraHandler : MonoBehaviour
 
     void zoom(float increment)
     {
-        Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - increment, zoomOutMin, zoomOutMax);
-        
+        // Change the field of view of camera based on the player's touch
+        Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - increment, zoomOutMin, zoomOutMax);      
     }
 }
