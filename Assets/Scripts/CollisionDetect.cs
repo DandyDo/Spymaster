@@ -11,6 +11,11 @@ public class CollisionDetect : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("I have stayed with the building");
+        Debug.Log("I am still in the building");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("I have exited the building");
     }
 }

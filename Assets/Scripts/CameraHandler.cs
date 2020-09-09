@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraHandler : MonoBehaviour
 {
+    Camera cam;
     public Transform player;
     public Vector3 camOffset = new Vector3(0, 60, -60);
     public float zoomOutMin = 20;
@@ -11,6 +12,8 @@ public class CameraHandler : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
+
         // Position the main camera at the player's position with offset
         transform.position = player.position + camOffset;
     }
@@ -55,6 +58,6 @@ public class CameraHandler : MonoBehaviour
     void zoom(float increment)
     {
         // Change the field of view of camera based on the player's touch
-        Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - increment, zoomOutMin, zoomOutMax);      
+        cam.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - increment, zoomOutMin, zoomOutMax);      
     }
 }
