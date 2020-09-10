@@ -1487,6 +1487,14 @@ PrefabInstance:
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].GoModifiers.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 4a1361f1e5a5eb44b8bece9fbc8ce8e5, type: 2}
+    - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
+      propertyPath: _options.scalingOptions.unityTileSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
+      propertyPath: _initializeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114140835023345716, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: m_Enabled
       value: 1
