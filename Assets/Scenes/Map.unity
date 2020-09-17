@@ -1795,7 +1795,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1156128222}
-  radius: 30
+  playerRadius: 30
+  buildingRadius: 20
 --- !u!21 &1756030326
 Material:
   serializedVersion: 6
