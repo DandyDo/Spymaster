@@ -1017,6 +1017,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].filterOptions.filters.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _options.tileMaterial
       value: 
       objectReference: {fileID: 419367518}
@@ -1034,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 399985019}
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _vectorData._layerProperty._sourceType
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _vectorData._layerProperty.sourceOptions.isActive
@@ -1042,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _vectorData._layerProperty.sourceOptions.layerSource.Id
-      value: mapbox.3d-buildings,mapbox.mapbox-streets-v7
+      value: mapbox.3d-buildings,mapbox.mapbox-streets-v8
       objectReference: {fileID: 0}
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[3]
@@ -1415,7 +1419,7 @@ PrefabInstance:
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _vectorData._layerProperty.locationPrefabList.Array.data[0].spawnPrefabOptions.prefab
       value: 
-      objectReference: {fileID: 1064074361305596, guid: 748e2c1db1257594bb438fbb7bd185f0, type: 3}
+      objectReference: {fileID: 6725288725714202210, guid: 5edbeb1e91cac6c4c9ff161a7bac5617, type: 3}
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].honorBuildingIdSetting
       value: 1
@@ -1491,6 +1495,18 @@ PrefabInstance:
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _initializeOnStart
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
+      propertyPath: _vectorData._layerProperty.locationPrefabList.Array.data[0].spawnPrefabOptions.scaleDownWithWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].filterOptions.filters.Array.data[0].KeyDescription
+      value: Unavailable in Selected Layer.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].moveFeaturePositionTo
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114140835023345716, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: m_Enabled
@@ -1797,6 +1813,18 @@ MonoBehaviour:
   player: {fileID: 1156128222}
   playerRadius: 30
   buildingRadius: 20
+  prefab: {fileID: 6725288725714202210, guid: 5edbeb1e91cac6c4c9ff161a7bac5617, type: 3}
+  colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.5019608, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0.5019608, b: 1, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0.49803922, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.49803922, a: 1}
+  - {r: 0.2, g: 0.4, b: 0, a: 1}
 --- !u!21 &1756030326
 Material:
   serializedVersion: 6
