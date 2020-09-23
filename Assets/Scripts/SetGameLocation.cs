@@ -1,19 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Debug = UnityEngine.Debug;
-using UnityEngine;
-using Mapbox.Map;
-using Mapbox.Unity.Map;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Mapbox.Platform.Cache;
-using Mapbox.Examples;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SetGameLocation : MonoBehaviour
 {
     List<GameObject> buildings = new List<GameObject>();
     List<Collider> colliders = new List<Collider>();
+
     public Transform player;
     public float playerRadius = 30;
     public float buildingRadius = 20;
@@ -28,16 +22,23 @@ public class SetGameLocation : MonoBehaviour
     {
         // Invert bit mask to ignore layer 8 (player) specifically.
         layerMask = ~layerMask;
+    }
 
-        StartCoroutine(GetClosestBuildings());
+    void Update()
+    {
+        if (Physics.CheckSphere(player.transform.position, playerRadius, layerMask))
+        {
+            GetClosestBuildings();
+            FetchBuildings();
+            EditBuildings();
+
+            enabled = false;
+        }
     }
 
     // Wait for n seconds before addings buildings within radius of player to a list
-    IEnumerator GetClosestBuildings()
+    void GetClosestBuildings()
     {
-        yield return new WaitForSeconds(5);
-        Debug.Log("waited 5 seconds");
-
         // Search for the closest buildings to the player
         colliders = Physics.OverlapSphere(player.transform.position, playerRadius, layerMask).ToList();
 
@@ -55,15 +56,11 @@ public class SetGameLocation : MonoBehaviour
             }
         }
 
-        Debug.Log("There are " + buildings.Count + " buildings in the list. GetClosestBuildings");
-
         colliders.Clear();
-
-        yield return FetchBuildings();
     }
 
     // Fetch the rest of the buildings if the list wasn't filled after GetClosestBuildings()
-    IEnumerator FetchBuildings()
+    void FetchBuildings()
     {
         int i = buildings.Count;
         while (buildings.Count < 10 && i < 10)
@@ -82,30 +79,26 @@ public class SetGameLocation : MonoBehaviour
                         if (!buildings.Contains(collider.gameObject))
                         {
                             // check if buildings found so far are less than 10
-                            if (tempBuildings.Count < 10 - buildings.Count) 
+                            if (tempBuildings.Count < 10 - buildings.Count)
                             {
                                 tempBuildings.Add(collider.gameObject);
                             }
                         }
-
-                        Debug.Log("There are " + tempBuildings.Count + " buildings in the temp list.");
                     }
 
                     colliders.Clear();
-                }               
+                }
             }
 
             i++;
 
             buildings.AddRange(tempBuildings);
-            Debug.Log("There are " + buildings.Count + " buildings in the list.");
+            // Debug.Log("There are " + buildings.Count + " buildings in the list.");
         }
-
-        yield return EditBuildings();
     }
 
     // Modify the selected buildings. (Sort buildings by distance from player, buildings' names, and colors)
-    IEnumerator EditBuildings()
+    void EditBuildings()
     {
         // Sort the returned compared result from the function
         buildings.Sort(DistanceToPlayer);
@@ -133,11 +126,9 @@ public class SetGameLocation : MonoBehaviour
             //buildingRenderer.material.SetColor("_Color", colors[i]);      // for top-side (roof) color only
             newPrefabRenderer.material.SetColor("_Color", colors[i]);
         }
-
-        yield break;
     }
 
-    int DistanceToPlayer (GameObject a, GameObject b)
+    int DistanceToPlayer(GameObject a, GameObject b)
     {
         // Find each sqrMagnitude of each object from player and compare
         float x = (a.transform.position - player.position).sqrMagnitude;
@@ -146,7 +137,7 @@ public class SetGameLocation : MonoBehaviour
         return x.CompareTo(y);
     }
 
-    int DistanceToPlayer (Collider a, Collider b)
+    int DistanceToPlayer(Collider a, Collider b)
     {
         // Find each sqrMagnitude of each object from player and compare
         float x = (a.transform.position - player.position).sqrMagnitude;
@@ -155,5 +146,3 @@ public class SetGameLocation : MonoBehaviour
         return x.CompareTo(y);
     }
 }
-
-
