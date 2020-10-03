@@ -8,7 +8,8 @@
 
 		public void Start()
 		{
-			_camera = Camera.main;
+			// There are better ways, but for now I'll use this
+			_camera = GameObject.Find("GpsCamera").GetComponent<Camera>();
 		}
 
 		void Update()

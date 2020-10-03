@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1241062147784094863}
   - component: {fileID: 5323932188822834068}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PoiMarkerHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6725288725714202210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4994408222945406437}
   m_Father: {fileID: 0}
@@ -53,9 +53,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1241062147784094863}
     m_Modifications:
+    - target: {fileID: 1388528484174694, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1550249727436304, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
       propertyPath: m_Name
       value: ServicePoiLabelPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550249727436304, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703732941097044, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811557742726476, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4443302213748912, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,6 +93,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114411151926404462, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114834841667761492, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
       propertyPath: m_Color.r
       value: 1
@@ -100,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 212657809318268000, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223687135526774410, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
+      propertyPath: m_Camera
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 224439370673493072, guid: 60a41cfc23d514878814f0d425912eff, type: 3}
       propertyPath: m_AnchoredPosition.x
