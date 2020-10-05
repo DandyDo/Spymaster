@@ -21,12 +21,14 @@ public class ButtonBehavior : MonoBehaviour
             GetComponent<Image>().color = Color.green;
             gpsMap.SetActive(true);
             panel.SetActive(true);
+            _camera.gameObject.SetActive(true);
             _camera.enabled = true;
         }
         else
         {
             GetComponent<Image>().color = Color.red;
             gpsMap.SetActive(false);
+            _camera.gameObject.SetActive(false);
             _camera.enabled = false;
             panel.SetActive(false);
         }
