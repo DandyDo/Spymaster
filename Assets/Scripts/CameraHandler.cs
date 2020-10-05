@@ -30,7 +30,8 @@ public class CameraHandler : MonoBehaviour
 
             float touchZeroCurr = touchZero.position.x - touchZeroPrevPos.x;
 
-            transform.RotateAround(player.position, Vector3.up, touchZeroCurr * 0.06f);
+            transform.RotateAround(player.position, Vector3.up, touchZeroCurr * 0.1f);
+
             // assign the new value of the player location to the camera offset
             camOffset = transform.position - player.position;
         }
