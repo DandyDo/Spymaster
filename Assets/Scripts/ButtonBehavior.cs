@@ -7,7 +7,6 @@ public class ButtonBehavior : MonoBehaviour
 {
     public GameObject panel;
     Camera _camera;
-    public GameObject gpsMap;
 
     public void Start()
     {
@@ -19,7 +18,6 @@ public class ButtonBehavior : MonoBehaviour
         if (!panel.activeSelf)
         {
             GetComponent<Image>().color = Color.green;
-            gpsMap.SetActive(true);
             panel.SetActive(true);
             _camera.gameObject.SetActive(true);
             _camera.enabled = true;
@@ -27,7 +25,6 @@ public class ButtonBehavior : MonoBehaviour
         else
         {
             GetComponent<Image>().color = Color.red;
-            gpsMap.SetActive(false);
             _camera.gameObject.SetActive(false);
             _camera.enabled = false;
             panel.SetActive(false);
