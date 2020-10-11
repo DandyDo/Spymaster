@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollisionDetect : MonoBehaviour
 {
+    #if (UNITY_EDITOR)
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("I have collided with " + other.gameObject.name);
@@ -18,4 +17,5 @@ public class CollisionDetect : MonoBehaviour
     {
         Debug.Log("I have exited " + other.gameObject.name);
     }
+    #endif
 }

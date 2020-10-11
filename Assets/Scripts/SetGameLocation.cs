@@ -14,8 +14,8 @@ public class SetGameLocation : MonoBehaviour
     public GameObject prefab;
     public Color[] colors;
 
-    // Bit shift the index of the layer 8 (player) to get a bit mask
-    int layerMask = 1 << 8;
+    // Bit shift the index of the GpsPlayer and Default to get a bit mask
+    int layerMask = (1 << 8 | 1 << 0);
 
     // Start is called before the first frame update
     void Start()
