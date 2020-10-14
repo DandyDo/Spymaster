@@ -3,10 +3,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script fetches the buildings generated from Mapbox, stores them in a list,
+/// modifies them, then finally sets them to the game Hub objects.
+/// </summary>
 public class SetGameLocation : MonoBehaviour
 {
-    List<GameObject> buildings = new List<GameObject>();
+    List<GameObject> buildings = new List<GameObject>();    
     List<Collider> colliders = new List<Collider>();
+
+    public Transform hubHolder;
 
     public Transform player;
     public float playerRadius = 30;
@@ -31,8 +37,9 @@ public class SetGameLocation : MonoBehaviour
             GetClosestBuildings();
             FetchBuildings();
             EditBuildings();
+            setBuildingsToHubs();
 
-            enabled = false;
+            enabled = false; // Turn off script once done.
         }
     }
 
@@ -109,6 +116,15 @@ public class SetGameLocation : MonoBehaviour
             buildings[j].name = j.ToString();
         }
 
+        Transform[] hubs = new Transform[hubHolder.childCount];
+        int x = 0;
+
+        foreach (Transform hub in hubHolder)
+        {
+            hubs[x] = hub;
+            x++;
+        }
+
         // Instantiate a prefarb (Poi Marker) on each buildings in the list
         for (int i = 0; i < buildings.Count; i++)
         {
@@ -123,8 +139,32 @@ public class SetGameLocation : MonoBehaviour
             {
                 material.SetColor("_Color", colors[i]);
             }
-            //buildingRenderer.material.SetColor("_Color", colors[i]);      // for top-side (roof) color only
+            //buildingRenderer.material.SetColor("_Color", colors[i]);      // for top-side (roof) color only. Remove the loop in this case.
             newPrefabRenderer.material.SetColor("_Color", colors[i]);
+
+            if (hubs[i] != null)
+            {
+                buildings[i].name = hubs[i].name;
+                newPrefab.GetComponentInChildren<Text>().text = hubs[i].name;
+
+                var hubRenderer = hubs[i].GetComponent<SpriteRenderer>();
+                hubRenderer.color = colors[i];
+            }
+        }
+    }
+
+    // Sets the names of the Buildings and sets the colors of the Hubs
+    void setBuildingsToHubs()
+    {
+        if (buildings.Any())
+        {
+            if(hubHolder != null)
+            {
+                foreach (Transform hub in hubHolder)
+                {
+
+                }
+            }
         }
     }
 
