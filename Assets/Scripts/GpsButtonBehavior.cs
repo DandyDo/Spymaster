@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonBehavior : MonoBehaviour
+public class GpsButtonBehavior : MonoBehaviour
 {
     public GameObject panel;
+    public PanCamera MainCameraScript;  // lazy way to disable/enable the camera script?
     Camera _camera;
 
     public void Start()
@@ -19,12 +20,14 @@ public class ButtonBehavior : MonoBehaviour
             panel.SetActive(true);
             _camera.gameObject.SetActive(true);
             _camera.enabled = true;
+            MainCameraScript.enabled = false;
         }
         else
         {
             GetComponent<Image>().color = Color.red;
             _camera.gameObject.SetActive(false);
             _camera.enabled = false;
+            MainCameraScript.enabled = true;
             panel.SetActive(false);
         }
     }

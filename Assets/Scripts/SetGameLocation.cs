@@ -37,7 +37,6 @@ public class SetGameLocation : MonoBehaviour
             GetClosestBuildings();
             FetchBuildings();
             EditBuildings();
-            setBuildingsToHubs();
 
             enabled = false; // Turn off script once done.
         }
@@ -110,10 +109,10 @@ public class SetGameLocation : MonoBehaviour
         // Sort the returned compared result from the function
         buildings.Sort(DistanceToPlayer);
 
-        // Name each buildings from 0 to 9
-        for (int j = 0; j < buildings.Count; j++)
+        // Give a Tag for each building
+        foreach (GameObject building in buildings)
         {
-            buildings[j].name = j.ToString();
+            building.tag = "Hub";
         }
 
         Transform[] hubs = new Transform[hubHolder.childCount];
@@ -149,21 +148,6 @@ public class SetGameLocation : MonoBehaviour
 
                 var hubRenderer = hubs[i].GetComponent<SpriteRenderer>();
                 hubRenderer.color = colors[i];
-            }
-        }
-    }
-
-    // Sets the names of the Buildings and sets the colors of the Hubs
-    void setBuildingsToHubs()
-    {
-        if (buildings.Any())
-        {
-            if(hubHolder != null)
-            {
-                foreach (Transform hub in hubHolder)
-                {
-
-                }
             }
         }
     }
