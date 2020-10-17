@@ -3,10 +3,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script fetches the buildings generated from Mapbox, stores them in a list,
+/// modifies them, then finally sets them to the game Hub objects.
+/// </summary>
 public class SetGameLocation : MonoBehaviour
 {
-    List<GameObject> buildings = new List<GameObject>();
+    List<GameObject> buildings = new List<GameObject>();    
     List<Collider> colliders = new List<Collider>();
+
+    public Transform hubHolder;
 
     public Transform player;
     public float playerRadius = 30;
@@ -14,8 +20,8 @@ public class SetGameLocation : MonoBehaviour
     public GameObject prefab;
     public Color[] colors;
 
-    // Bit shift the index of the layer 8 (player) to get a bit mask
-    int layerMask = 1 << 8;
+    // Bit shift the index of the GpsPlayer and Default to get a bit mask
+    int layerMask = (1 << 8 | 1 << 0);
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +38,7 @@ public class SetGameLocation : MonoBehaviour
             FetchBuildings();
             EditBuildings();
 
-            enabled = false;
+            enabled = false; // Turn off script once done.
         }
     }
 
@@ -103,10 +109,19 @@ public class SetGameLocation : MonoBehaviour
         // Sort the returned compared result from the function
         buildings.Sort(DistanceToPlayer);
 
-        // Name each buildings from 0 to 9
-        for (int j = 0; j < buildings.Count; j++)
+        // Give a Tag for each building
+        foreach (GameObject building in buildings)
         {
-            buildings[j].name = j.ToString();
+            building.tag = "Hub";
+        }
+
+        Transform[] hubs = new Transform[hubHolder.childCount];
+        int x = 0;
+
+        foreach (Transform hub in hubHolder)
+        {
+            hubs[x] = hub;
+            x++;
         }
 
         // Instantiate a prefarb (Poi Marker) on each buildings in the list
@@ -123,8 +138,17 @@ public class SetGameLocation : MonoBehaviour
             {
                 material.SetColor("_Color", colors[i]);
             }
-            //buildingRenderer.material.SetColor("_Color", colors[i]);      // for top-side (roof) color only
+            //buildingRenderer.material.SetColor("_Color", colors[i]);      // for top-side (roof) color only. Remove the loop in this case.
             newPrefabRenderer.material.SetColor("_Color", colors[i]);
+
+            if (hubs[i] != null)
+            {
+                buildings[i].name = hubs[i].name;
+                newPrefab.GetComponentInChildren<Text>().text = hubs[i].name;
+
+                var hubRenderer = hubs[i].GetComponent<SpriteRenderer>();
+                hubRenderer.color = colors[i];
+            }
         }
     }
 

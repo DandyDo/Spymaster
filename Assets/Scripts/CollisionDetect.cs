@@ -1,21 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollisionDetect : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public GameObject gpsLocation;
+    TextMeshProUGUI gpsLocationText;
+    string onEnterBuilding;
+    bool hubFound = false;
+
+    private void Start()
     {
-        Debug.Log("I have collided with " + other.gameObject.name);
+        gpsLocationText = gpsLocation.GetComponent<TextMeshProUGUI>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("I am still in " + other.gameObject.name);
+        if (other.tag == "Hub")
+        {
+            onEnterBuilding = other.gameObject.name;
+
+            gpsLocationText.text = " GPS Location: " + onEnterBuilding;
+        }
+
+        Debug.Log("I have collided with " + other.gameObject.name);
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.tag == "Hub")
+        {
+
+        }
+
         Debug.Log("I have exited " + other.gameObject.name);
+    }
+
+    // In case a building did not get a name during initialization
+    private void OnTriggerStay(Collider other)
+    {
+        if (!hubFound && other.tag == "Hub")
+        {
+            onEnterBuilding = other.gameObject.name;
+
+            gpsLocationText.text = " GPS Location: " + onEnterBuilding;
+
+            hubFound = true;
+        }
     }
 }
