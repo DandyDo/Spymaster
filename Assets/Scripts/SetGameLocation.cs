@@ -27,16 +27,14 @@ public class SetGameLocation : MonoBehaviour
     void Start()
     {
         // Invert bit mask to ignore layer 8 (player) specifically.
-        layerMask = ~layerMask;
+        layerMask = ~layerMask;     
     }
 
     void Update()
     {
         if (Physics.CheckSphere(player.transform.position, playerRadius, layerMask))
         {
-            GetClosestBuildings();
-            FetchBuildings();
-            EditBuildings();
+            Invoke("GetClosestBuildings", 3.0f); ;
 
             enabled = false; // Turn off script once done.
         }
@@ -63,6 +61,8 @@ public class SetGameLocation : MonoBehaviour
         }
 
         colliders.Clear();
+
+        Invoke("FetchBuildings", 0f);
     }
 
     // Fetch the rest of the buildings if the list wasn't filled after GetClosestBuildings()
@@ -101,6 +101,8 @@ public class SetGameLocation : MonoBehaviour
             buildings.AddRange(tempBuildings);
             // Debug.Log("There are " + buildings.Count + " buildings in the list.");
         }
+
+        Invoke("EditBuildings", 0f);
     }
 
     // Modify the selected buildings. (Sort buildings by distance from player, buildings' names, and colors)
