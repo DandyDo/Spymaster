@@ -34,7 +34,7 @@ public class SetGameLocation : MonoBehaviour
     {
         if (Physics.CheckSphere(player.transform.position, playerRadius, layerMask))
         {
-            Invoke("GetClosestBuildings", 3.0f); ;
+            Invoke("GetClosestBuildings", 2.0f); ;
 
             enabled = false; // Turn off script once done.
         }
