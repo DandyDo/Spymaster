@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class SetGameLocation : MonoBehaviour
     public float buildingRadius = 20;
     public GameObject prefab;
     public Color[] colors;
+
+    public TMP_Text PlayerLocationOnMap;
 
     // Bit shift the index of the GpsPlayer and Default to get a bit mask
     int layerMask = (1 << 8 | 1 << 0);
@@ -47,6 +50,8 @@ public class SetGameLocation : MonoBehaviour
         colliders = Physics.OverlapSphere(player.transform.position, playerRadius, layerMask).ToList();
 
         colliders.Sort(DistanceToPlayer);
+
+       
 
         foreach (Collider collider in colliders)
         {
