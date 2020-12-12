@@ -7,21 +7,21 @@ public class Scoring : MonoBehaviour
 {
     public WinLoseConditions WinLoss;
 
-    public static Scoring current;
+    //public static Scoring current;
 
     private void Awake()
     {
-        current = this;
+        //current = this;
     }
 
-    public event Action onMissionCompleted;
-    public void MissoinCompleted()
-    {
-        if (onMissionCompleted != null)
-        {
-            onMissionCompleted();
-        }
-    }
+   // public event Action onMissionCompleted;
+    //public void MissoinCompleted()
+    //{
+    //    if (onMissionCompleted != null)
+    //    {
+    //        onMissionCompleted();
+    //    }
+    //}
 
     // Start is called before the first frame update
     void Start()

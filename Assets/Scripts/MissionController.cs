@@ -8,7 +8,7 @@ public class MissionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Scoring.current.onMissionCompleted += Current_onMissionCompleted;
+       // Scoring.current.onMissionCompleted += Current_onMissionCompleted;
     }
 
     private void Current_onMissionCompleted()

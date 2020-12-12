@@ -12,7 +12,28 @@ public class WinLoseConditions : MonoBehaviour
     public TMP_Text Team1Scorelabel = null;
     public TMP_Text Team2Scorelabel = null;
 
-    
+    //mission to minsk
+    public TMP_Text PlayerLocationText;
+    string PlayerLocation;
+    bool minskMissionComplete = false;
+    bool moscowMissionComplete = false;
+    // Update is called once per frame
+    void Update()
+    {
+        PlayerLocation = PlayerLocationText.text.Substring(15);
+        if (PlayerLocation == "Minsk" && minskMissionComplete == false)
+        {
+            minskMissionComplete = true;
+            increaseTeam1Score(250);
+        }
+        if (PlayerLocation == "Moscow" && moscowMissionComplete == false)
+        {
+            moscowMissionComplete = true;
+            increaseTeam1Score(250);
+        }
+    }
+
+
 
 
 
@@ -45,9 +66,5 @@ public class WinLoseConditions : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
