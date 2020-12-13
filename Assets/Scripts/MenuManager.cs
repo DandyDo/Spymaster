@@ -2,8 +2,9 @@
 
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager Instance; // Singleton
     [SerializeField] Menu[] menus;
+
+    public static MenuManager Instance; // Singleton
 
     private void Awake()
     {
