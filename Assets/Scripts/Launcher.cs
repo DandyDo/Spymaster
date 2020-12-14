@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using TMPro;
 using System.Collections.Generic;
@@ -10,11 +11,13 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField roomNameInputField;
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
+    [SerializeField] TMP_Text StartGameButtonText;
     [SerializeField] Transform roomListContent;
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject roomListItemPrefab;
     [SerializeField] GameObject playerListItemPrefab;
     [SerializeField] GameObject StartGameButton;
+    [SerializeField] byte MaxPlayersPerRoom = 8;
 
     List<RoomInfo> rooms = new List<RoomInfo>();
 
@@ -54,7 +57,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             return;
         }
 
-        PhotonNetwork.CreateRoom(roomNameInputField.text);
+        PhotonNetwork.CreateRoom(roomNameInputField.text, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null); // set room name and max number of players in room
         MenuManager.Instance.OpenMenu("connecting");
     }
 
@@ -98,7 +101,11 @@ public class Launcher : MonoBehaviourPunCallbacks
             Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
 
-        StartGameButton.SetActive(PhotonNetwork.IsMasterClient); //Only host can press the start button in room.
+        if (PhotonNetwork.IsMasterClient)
+        {
+            StartGameButton.SetActive(true); // Set active for  the master client of room only
+            StartGameButtonText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/8";
+        }
     }
 
     // When Host leave migrate the host to someone else
@@ -148,6 +155,22 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
+
+        StartGameButtonText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/8";
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 8)
+            {
+                StartGameButton.GetComponent<Button>().interactable = true;
+                StartGameButtonText.text = "Start";
+            }
+            else
+            {
+                StartGameButton.GetComponent<Button>().interactable = false;
+                StartGameButtonText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/8";
+            }
+        }
     }
 
     public void RefreshConnection()
