@@ -15,27 +15,32 @@ public class MenuManager : MonoBehaviour
     {
         for (int i = 0; i < menus.Length; i++)
         {
-            if (menus[i].menuName == menuName)
+            if (menus[i].menuName == menuName && !menus[i].open)
             {
+                Debug.Log("Open menu called");
                 menus[i].Open();
             }
-            else if (menus[i].open)
+            else if (menus[i].menuName == menuName && menus[i].open)
             {
-                CloseMenu(menus[i]);
+                Debug.Log("Close menu called");
+                menus[i].Close();
             }
         }
     }
  
     public void OpenMenu (Menu menu)
     {
-        for (int i = 0; i < menus.Length; i++)
+        if (menu.open)
         {
-            if (menus[i].open)
-            {
-                CloseMenu(menus[i]);
-            }
+            Debug.Log("Close menu called");
+            menu.Close();
         }
-        menu.Open();
+        else if (!menu.open)
+        {
+            Debug.Log("Open menu called");
+            menu.Open();
+        }
+        
     }
 
     public void CloseMenu(Menu menu)

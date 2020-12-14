@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WinLoseConditions : MonoBehaviour
 {
+    
+
     [HideInInspector] int team1score = 0;
     [HideInInspector] int team2score = 0;
     public int winningScore = 500;
     public TMP_Text Team1Scorelabel = null;
     public TMP_Text Team2Scorelabel = null;
+    [HideInInspector] public bool team1won = false;
+    [HideInInspector] public bool team2won = false;
 
     //mission to minsk
     public TMP_Text PlayerLocationText;
@@ -33,6 +38,22 @@ public class WinLoseConditions : MonoBehaviour
         }
     }
 
+    //trying to keep the information from this script available in the next scene
+    public static WinLoseConditions WL;
+   
+    void Awake()
+    {
+        if (WL != null)
+        {
+            GameObject.Destroy(WL);
+        }
+        else
+        {
+            WL = this;
+        }
+        DontDestroyOnLoad(this); 
+    }
+
 
 
 
@@ -46,6 +67,7 @@ public class WinLoseConditions : MonoBehaviour
         {
             //load winning scene
             //would like to make sure this shows who won the game
+            team1won = true;
             SceneManager.LoadScene("WinningScene");
         }
     }
@@ -57,14 +79,15 @@ public class WinLoseConditions : MonoBehaviour
         if (team2score >= winningScore)
         {
             //load winning scene
+            team2won = true;
             SceneManager.LoadScene("LosingScene");
         }
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     
+    
+    
+
 }
