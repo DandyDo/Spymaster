@@ -101,10 +101,11 @@ public class Launcher : MonoBehaviourPunCallbacks
             Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
 
+        StartGameButtonText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/8";
+
         if (PhotonNetwork.IsMasterClient)
         {
             StartGameButton.SetActive(true); // Set active for  the master client of room only
-            StartGameButtonText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/8";
         }
     }
 
@@ -171,6 +172,11 @@ public class Launcher : MonoBehaviourPunCallbacks
                 StartGameButtonText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/8";
             }
         }
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        StartGameButtonText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "/8";
     }
 
     public void RefreshConnection()
