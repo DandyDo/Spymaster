@@ -18,7 +18,7 @@ public class CharacterClass : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            inventoryTextDisplays[i].text = inventory[i].numberOfItem.ToString() + " " + inventory[i].name;
+            inventoryTextDisplays[i].text = "";
         }
     }
 

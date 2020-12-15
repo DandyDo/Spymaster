@@ -23,7 +23,7 @@ public class CollisionDetect : MonoBehaviour
             gpsLocationText.text = " GPS Location: " + onEnterBuilding;
         }
 
-        Debug.Log("I have collided with " + other.gameObject.name);
+        //Debug.Log("I have collided with " + other.gameObject.name);
     }
 
     private void OnTriggerExit(Collider other)
@@ -33,7 +33,7 @@ public class CollisionDetect : MonoBehaviour
 
         }
 
-        Debug.Log("I have exited " + other.gameObject.name);
+        //Debug.Log("I have exited " + other.gameObject.name);
     }
 
     // In case a building did not get a name during initialization

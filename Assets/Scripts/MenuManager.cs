@@ -11,36 +11,52 @@ public class MenuManager : MonoBehaviour
         Instance = this;
     }
 
-    public void OpenMenu (string menuName)
+    // Open menu by using its string name  (good for calling through unrelated GameObjects). THIS SCRIPT CLOSES OTHER MENUS AND LEAVES THE WANTED MENU OPEN
+    public void OpenMenu(string menuName)
     {
         for (int i = 0; i < menus.Length; i++)
         {
-            if (menus[i].menuName == menuName && !menus[i].open)
+            if (menus[i].menuName == menuName)
             {
-                Debug.Log("Open menu called");
                 menus[i].Open();
             }
-            else if (menus[i].menuName == menuName && menus[i].open)
+            else if (menus[i].open)
             {
-                Debug.Log("Close menu called");
-                menus[i].Close();
+                CloseMenu(menus[i]);
             }
         }
     }
- 
-    public void OpenMenu (Menu menu)
+
+    // Open menu by using its type. THIS SCRIPT CLOSES OTHER MENUS AND LEAVES THE WANTED MENU OPEN
+    public void OpenMenu(Menu menu)
     {
-        if (menu.open)
+        for (int i = 0; i < menus.Length; i++)
         {
-            Debug.Log("Close menu called");
-            menu.Close();
+            if (menus[i].open)
+            {
+                CloseMenu(menus[i]);
+            }
         }
-        else if (!menu.open)
+        menu.Open();
+    }
+    
+    // Open and close the same menu only (Toggle Mode). THIS IS WHAT YOU WANT.
+    public void ToggleMenu(Menu menu)
+    {
+        for (int i = 0; i < menus.Length; i++)
         {
-            Debug.Log("Open menu called");
-            menu.Open();
+            if (menus[i].menuName == menu.menuName)
+            { 
+                if (menus[i].open)
+                {
+                    CloseMenu(menus[i]);
+                }
+                else
+                {
+                    menus[i].Open();
+                }
+            }
         }
-        
     }
 
     public void CloseMenu(Menu menu)

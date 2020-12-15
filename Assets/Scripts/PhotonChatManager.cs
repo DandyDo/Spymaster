@@ -73,7 +73,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
 
     public void OnSubscribed(string[] channels, bool[] results)
     {
-        Debug.Log("Subscribed to a new channel!");
+        //Debug.Log("Subscribed to a new channel!");
     }
 
     public void PublishMessage ()
