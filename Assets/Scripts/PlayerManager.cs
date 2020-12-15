@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
 		// Check if owned by local player
 		if (PV.IsMine)
 		{
-			CreateController();
+			// CreateController();  // need to decide if this is necessary.
 		}
 	}
 

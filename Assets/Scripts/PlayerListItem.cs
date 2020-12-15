@@ -11,7 +11,13 @@ public class PlayerListItem : MonoBehaviourPunCallbacks
     public void SetUp (Player player)
     {
         this.player = player;
-        text.text = player.NickName;
+
+        text.text = this.player.NickName;
+
+        if (player.NickName == PhotonNetwork.LocalPlayer.NickName)
+        {
+            text.text = "<b>" + text.text + "</b>";
+        }
     }
 
     public override void OnPlayerLeftRoom (Player otherPlayer)
