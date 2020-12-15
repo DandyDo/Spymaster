@@ -9,7 +9,7 @@ public class CharacterClass : MonoBehaviour
     //travel passes for the classes. this is the default for all
     bool hasLandTravelPass = true;
     //the inventory of the player
-    List<Item> inventory = new List<Item>();
+    public List<Item> inventory = new List<Item>();
     public List<TMP_Text> inventoryTextDisplays = new List<TMP_Text>();
     //cards  the player has
     public List<Cards> cards = new List<Cards>();
@@ -20,5 +20,13 @@ public class CharacterClass : MonoBehaviour
         {
             inventoryTextDisplays[i].text = inventory[i].numberOfItem.ToString() + " " + inventory[i].name;
         }
+    }
+
+    TMP_Text itemTextToAdd;
+    public void addItemToInventory(Item itemToAdd)
+    {
+        inventory.Add(itemToAdd);
+        itemTextToAdd.text = itemToAdd.name;
+        inventoryTextDisplays.Add(itemTextToAdd);
     }
 }

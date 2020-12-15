@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameEventSystem : MonoBehaviour
+public class Timing : MonoBehaviour
 {
     public float timer; //timer
     public int minutes; //timer mins

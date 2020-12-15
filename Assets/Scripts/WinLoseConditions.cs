@@ -7,40 +7,78 @@ using UnityEngine.UI;
 
 public class WinLoseConditions : MonoBehaviour
 {
-    
+    public MissionController MissionControl;
 
-    [HideInInspector] int team1score = 0;
-    [HideInInspector] int team2score = 0;
+    public int team1score = 0;
+    public int team2score = 0;
     public int winningScore = 500;
     public TMP_Text Team1Scorelabel = null;
     public TMP_Text Team2Scorelabel = null;
     [HideInInspector] public bool team1won = false;
     [HideInInspector] public bool team2won = false;
 
-    //mission to minsk
-    public TMP_Text PlayerLocationText;
-    string PlayerLocation;
-    bool minskMissionComplete = false;
-    bool moscowMissionComplete = false;
-    // Update is called once per frame
-    void Update()
+
+    public List<Missions> MissionsList = new List<Missions>();
+    public List<TMP_Text> MissionListOnScreen = new List<TMP_Text>();
+    public void diplayMissions()
     {
-        PlayerLocation = PlayerLocationText.text.Substring(15);
-        if (PlayerLocation == "Minsk" && minskMissionComplete == false)
+
+        int i = 0;
+        foreach (TMP_Text MissionOnScreen in MissionListOnScreen)
         {
-            minskMissionComplete = true;
-            increaseTeam1Score(250);
-        }
-        if (PlayerLocation == "Moscow" && moscowMissionComplete == false)
-        {
-            moscowMissionComplete = true;
-            increaseTeam1Score(250);
+            if (i < MissionsList.Count)
+            {
+                MissionOnScreen.text = "Get to " + MissionsList[i].locationToGetTo.name + " - " + MissionsList[i].pointValueForCompletion + " points";
+            }
+            
+            i++;
         }
     }
 
+    public int checkMissionCompletion() //returns point value to increase score by
+    {
+        int sumOfPointsToBeAddedToScore = 0;
+        for (int i = 0; i < MissionListOnScreen.Count; i++)
+        {
+            MissionListOnScreen[i].text = "";
+            if (i < MissionsList.Count)
+            {
+                if (MissionsList[i].completed)
+                {
+                    sumOfPointsToBeAddedToScore += MissionsList[i].pointValueForCompletion;
+                    MissionsList.RemoveAt(i);
+                }
+            }
+            diplayMissions();
+        }
+        //for some reaoson the value is being reset to 0 before it returns
+        return sumOfPointsToBeAddedToScore;
+    }
+
+    double UpdateFrequency;
+    private void Start()
+    {
+        diplayMissions();
+        
+    }
+
+    double timer;
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        timer += Time.deltaTime;
+        if (timer > 1)
+        {
+            timer -= 1;
+            increaseTeam1Score(checkMissionCompletion()); //increasing player score based on completed missions 
+        }
+        
+       
+    }
+
+
     //trying to keep the information from this script available in the next scene
     public static WinLoseConditions WL;
-   
     void Awake()
     {
         if (WL != null)
@@ -53,10 +91,6 @@ public class WinLoseConditions : MonoBehaviour
         }
         DontDestroyOnLoad(this); 
     }
-
-
-
-
 
     //increasing scores
     public void increaseTeam1Score(int amountToIncreaseBy)
