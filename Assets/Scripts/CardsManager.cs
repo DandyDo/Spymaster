@@ -6,6 +6,7 @@ using TMPro;
 public class CardsManager : MonoBehaviour
 {
     public List<Cards> cardList = new List<Cards>();
+    public List<GameObject> cardObjects = new List<GameObject>();
     Cards cardToBeUsed;
     public TMP_Text confirmationText;
     public void setCardToBeUsed(Cards cardToBeUsedInput)
@@ -15,6 +16,7 @@ public class CardsManager : MonoBehaviour
     }
     public void useCard()
     {
+        int i = 0;
         foreach (Cards card in cardList)
         {
             if (cardToBeUsed.name == card.name)
@@ -22,7 +24,9 @@ public class CardsManager : MonoBehaviour
                 //use card
                 Debug.Log("Used " + cardToBeUsed.cardName);
                 card.used = true;
+                cardObjects[i].SetActive(false);//disable the card after it has been used
             }
+            i++;
         }
     }
 }

@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83332ab43f6562f4982ff7d63d7f3954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: Card4
+  cardName: Bug
   used: 0
 --- !u!114 &59350203
 MonoBehaviour:
@@ -1005,8 +1005,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 23a3f31c52510134b89e29a4712e2b37, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1403,6 +1403,11 @@ MonoBehaviour:
   - {fileID: 1784215630}
   - {fileID: 573587246}
   - {fileID: 59350202}
+  cardObjects:
+  - {fileID: 2058037988}
+  - {fileID: 1784215628}
+  - {fileID: 573587244}
+  - {fileID: 59350200}
   confirmationText: {fileID: 1341964943}
 --- !u!1 &118147538
 GameObject:
@@ -2342,6 +2347,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 639830695}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: CloseMenu
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 100225819}
+          m_ObjectArgumentAssemblyTypeName: Menu, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4221,7 +4238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83332ab43f6562f4982ff7d63d7f3954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: Card3
+  cardName: Jammer
   used: 0
 --- !u!114 &573587247
 MonoBehaviour:
@@ -4310,8 +4327,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 4d2bf500958801d408f31b87f0de2c70, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
