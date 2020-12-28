@@ -11,7 +11,7 @@ public class WinLoseConditions : MonoBehaviour
 
     public int team1score = 0;
     public int team2score = 0;
-    public int winningScore = 500;
+    int winningScore;
     public TMP_Text Team1Scorelabel = null;
     public TMP_Text Team2Scorelabel = null;
     [HideInInspector] public bool team1won = false;
@@ -20,6 +20,24 @@ public class WinLoseConditions : MonoBehaviour
 
     public List<Missions> MissionsList = new List<Missions>();
     public List<TMP_Text> MissionListOnScreen = new List<TMP_Text>();
+
+    //info from options menu
+    //public Slider NumberOfDays;
+    //public Slider MinutesPerDay;
+    //public Slider PointsToWin;
+
+    private void Start()
+    {
+        diplayMissions();
+        //set values based on Options menu
+        winningScore = (int)OptionsInformation.SliderManager.DaysSlider.value;
+        Debug.Log(winningScore);
+    }
+    public void quit() //quits back to the main menu
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void diplayMissions()
     {
 
@@ -56,11 +74,7 @@ public class WinLoseConditions : MonoBehaviour
     }
 
     double UpdateFrequency;
-    private void Start()
-    {
-        diplayMissions();
-        
-    }
+   
 
     double timer;
     // Update is called once per frame
