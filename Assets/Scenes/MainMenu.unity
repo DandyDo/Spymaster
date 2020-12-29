@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09f1f628ffd8ef4886160c0965c8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: main menu
+  menuName: MainMenu
   open: 0
 --- !u!1 &20025915
 GameObject:
@@ -2071,7 +2071,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 36.1475, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3299,7 +3299,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 8, y: 0}
   m_SizeDelta: {x: 36.1475, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4950,7 +4950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09f1f628ffd8ef4886160c0965c8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: room
+  menuName: Room
   open: 0
 --- !u!114 &957601431
 MonoBehaviour:
@@ -6778,9 +6778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa5bbc4e12ed404f962893386b43065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DaysSlider: {fileID: 705952569}
-  MinutesSlider: {fileID: 1596684844}
-  PointsSlider: {fileID: 41778558}
+  DaysSlider: {fileID: 0}
+  MinutesSlider: {fileID: 0}
+  PointsSlider: {fileID: 0}
 --- !u!1 &1412211432
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,7 +6958,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7226,7 +7226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09f1f628ffd8ef4886160c0965c8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: create room
+  menuName: HostRoom
   open: 0
 --- !u!1 &1464505388
 GameObject:
@@ -7395,7 +7395,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 8.700012, y: 0}
   m_SizeDelta: {x: 36.1475, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8229,8 +8229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09f1f628ffd8ef4886160c0965c8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: connecting
-  open: 1
+  menuName: Connecting
+  open: 0
 --- !u!1 &1622291373
 GameObject:
   m_ObjectHideFlags: 0
@@ -8443,7 +8443,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9092,7 +9092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09f1f628ffd8ef4886160c0965c8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: error
+  menuName: 
   open: 0
 --- !u!114 &1726970287
 MonoBehaviour:
@@ -9222,7 +9222,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9438,7 +9438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1873213559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9513,7 +9513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09f1f628ffd8ef4886160c0965c8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: options menu
+  menuName: Optrions
   open: 0
 --- !u!114 &1873213563
 MonoBehaviour:
@@ -10030,14 +10030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49a01b5111a8ba4abae2fed1f9b3616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menus:
-  - {fileID: 1822507}
-  - {fileID: 2057505581}
-  - {fileID: 1873213562}
-  - {fileID: 1460678250}
-  - {fileID: 957601430}
-  - {fileID: 1726970285}
-  - {fileID: 1613739211}
+  menus: []
 --- !u!114 &2020492161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10050,15 +10043,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dd58c9ecf33d1469060b8c5ba1f345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomNameInputField: {fileID: 741605120}
-  errorText: {fileID: 1314593473}
-  roomNameText: {fileID: 133597432}
-  StartGameButtonText: {fileID: 846872986}
-  roomListContent: {fileID: 404292230}
-  playerListContent: {fileID: 446464039}
-  roomListItemPrefab: {fileID: 2174552795849418805, guid: 3c224e6c9df4beb488d599a266d12d03, type: 3}
-  playerListItemPrefab: {fileID: 1612114266117571605, guid: 7fa01c197656d5b49b7d6f1b08387df6, type: 3}
-  StartGameButton: {fileID: 472384741}
+  roomNameInputField: {fileID: 0}
+  errorText: {fileID: 0}
+  roomNameText: {fileID: 0}
+  StartGameButtonText: {fileID: 0}
+  roomListContent: {fileID: 0}
+  playerListContent: {fileID: 0}
+  roomListItemPrefab: {fileID: 0}
+  playerListItemPrefab: {fileID: 0}
+  StartGameButton: {fileID: 0}
   MaxPlayersPerRoom: 8
 --- !u!1 &2032477037
 GameObject:
@@ -10263,7 +10256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09f1f628ffd8ef4886160c0965c8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: list room
+  menuName: RoomsList
   open: 0
 --- !u!1001 &1993031612107148863
 PrefabInstance:

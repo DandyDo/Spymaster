@@ -30,7 +30,7 @@ public class WinLoseConditions : MonoBehaviour
     {
         diplayMissions();
         //set values based on Options menu
-        winningScore = (int)OptionsInformation.SliderManager.DaysSlider.value;
+        //winningScore = (int)OptionsInformation.SliderManager.DaysSlider.value;
         Debug.Log(winningScore);
     }
     public void quit() //quits back to the main menu
