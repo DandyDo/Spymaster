@@ -445,6 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 41778556}
   - component: {fileID: 41778558}
+  - component: {fileID: 41778557}
   m_Layer: 5
   m_Name: PointsToWinSlider
   m_TagString: Untagged
@@ -474,6 +475,20 @@ RectTransform:
   m_AnchoredPosition: {x: -37.8, y: 436}
   m_SizeDelta: {x: 683.8334, y: 36.498657}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &41778557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41778555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ed8841d61fefc4cb1a699ad52a6df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointsToWinDisplay: {fileID: 211811370}
+  PointsToWinSlider: {fileID: 41778558}
 --- !u!114 &41778558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,9 +539,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OptionsSliderScript, Assembly-CSharp
-        m_MethodName: changeNumberOfDays
+      - m_Target: {fileID: 41778557}
+        m_TargetAssemblyTypeName: PointsToWinScript, Assembly-CSharp
+        m_MethodName: changedPointsToWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3351,6 +3366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705952568}
   - component: {fileID: 705952569}
+  - component: {fileID: 705952570}
   m_Layer: 5
   m_Name: DaysSlider
   m_TagString: Untagged
@@ -3430,8 +3446,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OptionsSliderScript, Assembly-CSharp
+      - m_Target: {fileID: 705952570}
+        m_TargetAssemblyTypeName: NumberofDaysScript, Assembly-CSharp
         m_MethodName: changeNumberOfDays
         m_Mode: 1
         m_Arguments:
@@ -3442,6 +3458,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &705952570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705952567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8778d6b371700374a974f8fb73a4518a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumberOfDaysDisplay: {fileID: 791719468}
+  NumberOfDaysSlider: {fileID: 705952569}
 --- !u!1 &725805235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5804,6 +5834,7 @@ GameObject:
   - component: {fileID: 1127698724}
   - component: {fileID: 1127698726}
   - component: {fileID: 1127698725}
+  - component: {fileID: 1127698727}
   m_Layer: 0
   m_Name: GPSBypass
   m_TagString: Untagged
@@ -5871,6 +5902,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127698723}
   m_CullTransparentMesh: 0
+--- !u!114 &1127698727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127698723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca9e4ff7ec0ad24ea4bd96896215303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1145554360
 GameObject:
   m_ObjectHideFlags: 0
@@ -7956,6 +7999,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1127698727}
+        m_TargetAssemblyTypeName: GpsBypassOption, Assembly-CSharp
+        m_MethodName: turnOnGPSBypass
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1582234635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8004,6 +8059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596684842}
   - component: {fileID: 1596684844}
+  - component: {fileID: 1596684843}
   m_Layer: 5
   m_Name: MinutesPerDaySlider
   m_TagString: Untagged
@@ -8033,6 +8089,20 @@ RectTransform:
   m_AnchoredPosition: {x: -37.8, y: 1052}
   m_SizeDelta: {x: 683.8334, y: 36.498657}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1596684843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596684841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c558eec258291bf4686c6f1f65423fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinutesPerDayDsiplay: {fileID: 1187287273}
+  MinutesPerDaySlider: {fileID: 1596684844}
 --- !u!114 &1596684844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8083,9 +8153,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OptionsSliderScript, Assembly-CSharp
-        m_MethodName: changeNumberOfDays
+      - m_Target: {fileID: 1596684843}
+        m_TargetAssemblyTypeName: MinutesPerDaySliderScript, Assembly-CSharp
+        m_MethodName: changeMinutesPerDay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9864,6 +9934,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1127698727}
+        m_TargetAssemblyTypeName: GpsBypassOption, Assembly-CSharp
+        m_MethodName: turnOffGPSBypass
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -19,7 +19,7 @@ public class PointsToWinScript : MonoBehaviour
     }
 
     //this function should be set up to be called when the value of the slider changes
-    public void changeNumberOfDays()
+    public void changedPointsToWin()
     {
         PointsToWinDisplay.text = PointsToWinSlider.value.ToString();
         PlayerPrefs.SetFloat("pointsToWin", PointsToWinSlider.value);

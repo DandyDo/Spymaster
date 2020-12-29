@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -63,5 +64,20 @@ public class MenuManager : MonoBehaviour
     public void CloseMenu(Menu menu)
     {
         menu.Close();
+    }
+
+    public Button GPSBypasButton;
+    private void Start()
+    {
+        Debug.Log("GPSBypassOption in game: " + PlayerPrefs.GetString("GPSBypassOption"));
+        //enabling gps bypas button based on settings
+        if ( PlayerPrefs.GetString("GPSBypassOption") == "on")
+        {
+            GPSBypasButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            GPSBypasButton.gameObject.SetActive(false);
+        }
     }
 }

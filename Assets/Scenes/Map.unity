@@ -5306,6 +5306,7 @@ MonoBehaviour:
   - {fileID: 1355611303}
   - {fileID: 100225819}
   - {fileID: 2134952634}
+  GPSBypasButton: {fileID: 1019171818}
 --- !u!1 &659484654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8862,7 +8863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1019171817
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13417,7 +13418,6 @@ MonoBehaviour:
   MissionControl: {fileID: 0}
   team1score: 0
   team2score: 0
-  winningScore: 500
   Team1Scorelabel: {fileID: 1577204092}
   Team2Scorelabel: {fileID: 1142334753}
   team1won: 0
