@@ -10030,7 +10030,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49a01b5111a8ba4abae2fed1f9b3616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menus: []
+  menus:
+  - {fileID: 1822507}
+  - {fileID: 2057505581}
+  - {fileID: 1460678250}
+  - {fileID: 957601430}
+  - {fileID: 1873213562}
+  - {fileID: 1726970285}
+  - {fileID: 1613739211}
 --- !u!114 &2020492161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10043,15 +10050,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dd58c9ecf33d1469060b8c5ba1f345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomNameInputField: {fileID: 0}
-  errorText: {fileID: 0}
-  roomNameText: {fileID: 0}
-  StartGameButtonText: {fileID: 0}
-  roomListContent: {fileID: 0}
-  playerListContent: {fileID: 0}
-  roomListItemPrefab: {fileID: 0}
-  playerListItemPrefab: {fileID: 0}
-  StartGameButton: {fileID: 0}
+  roomNameInputField: {fileID: 741605120}
+  errorText: {fileID: 1314593473}
+  roomNameText: {fileID: 494341464}
+  StartGameButtonText: {fileID: 846872986}
+  roomListContent: {fileID: 404292230}
+  playerListContent: {fileID: 446464039}
+  roomListItemPrefab: {fileID: 2174552795849418805, guid: 3c224e6c9df4beb488d599a266d12d03, type: 3}
+  playerListItemPrefab: {fileID: 1612114266117571605, guid: 7fa01c197656d5b49b7d6f1b08387df6, type: 3}
+  StartGameButton: {fileID: 472384741}
   MaxPlayersPerRoom: 8
 --- !u!1 &2032477037
 GameObject:
