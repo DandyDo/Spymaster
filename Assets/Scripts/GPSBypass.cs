@@ -4,10 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GPSBypassOptionButton : MonoBehaviour
+public class GPSBypass : MonoBehaviour
 {
     public TMP_Text GPSLocationDisplay;
-   
+
 
     public void changeLocation(string location)
     {
@@ -17,12 +17,12 @@ public class GPSBypassOptionButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
