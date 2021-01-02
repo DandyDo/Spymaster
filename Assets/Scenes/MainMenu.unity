@@ -157,7 +157,6 @@ RectTransform:
   - {fileID: 1513948558}
   - {fileID: 1093070526}
   - {fileID: 743680387}
-  - {fileID: 947096932}
   m_Father: {fileID: 2020492159}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4166,8 +4165,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 86
-  m_fontSizeBase: 86
+  m_fontSize: 50.1
+  m_fontSizeBase: 50.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4825,13 +4824,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 813947865}
-  m_Father: {fileID: 1822504}
+  m_Father: {fileID: 957601429}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 962, y: 628}
-  m_SizeDelta: {x: 567.8772, y: 200}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -179.4, y: -66.7}
+  m_SizeDelta: {x: 316.15564, y: 102.108185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947096933
 MonoBehaviour:
@@ -4960,6 +4959,7 @@ RectTransform:
   - {fileID: 446464039}
   - {fileID: 908423712}
   - {fileID: 472384742}
+  - {fileID: 947096932}
   m_Father: {fileID: 2020492159}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9600,12 +9600,14 @@ MonoBehaviour:
   MissionControl: {fileID: 0}
   team1score: 0
   team2score: 0
+  winningScore: 0
   Team1Scorelabel: {fileID: 0}
   Team2Scorelabel: {fileID: 0}
   team1won: 0
   team2won: 0
   MissionsList: []
   MissionListOnScreen: []
+  GameEnder: {fileID: 0}
 --- !u!1 &1941423846
 GameObject:
   m_ObjectHideFlags: 0
@@ -10120,7 +10122,7 @@ MonoBehaviour:
   - {fileID: 1873213562}
   - {fileID: 1726970285}
   - {fileID: 1613739211}
-  GPSBypasButton: {fileID: 0}
+  GPSBypasButton: {fileID: 1582234634}
 --- !u!114 &2020492161
 MonoBehaviour:
   m_ObjectHideFlags: 0

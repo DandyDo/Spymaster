@@ -3,6 +3,7 @@ using TMPro;
 using Photon.Chat;
 using Photon.Pun;
 using ExitGames.Client.Photon;
+using System.Linq;
 
 public class PhotonChatManager : MonoBehaviour, IChatClientListener
 {
@@ -50,12 +51,23 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     {
         //Debug.Log("Connected to Chat. As " + PhotonNetwork.NickName);
         PlayerNameText.text = PhotonNetwork.NickName;
-        chatClient.Subscribe(new string[] { "blue" }); // subscribe to chat channel once connected to server
+
+        for (int i = 0; i < PhotonNetwork.CurrentRoom.Players.Count; i++)
+        {
+            if (i % 2 == 0 && PhotonNetwork.CurrentRoom.Players.ElementAt(i).Value.NickName == PhotonNetwork.NickName)
+            {
+                chatClient.Subscribe(new string[] { "red" }); // subscribe to chat channel once connected to server
+            }
+            else
+            {
+                chatClient.Subscribe(new string[] { "blue" }); // subscribe to chat channel once connected to server
+            }
+        }
     }
 
     public void OnChatStateChange(ChatState state)
     {
-        
+
     }
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
@@ -68,6 +80,15 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
             msg = (string)messages[i];
 
             chatText.text += msg + "\n";
+
+            if (chatClient.PublicChannels.ElementAt(1).Key == "blue")
+            {
+                chatText.color = new Color32(51, 102, 255, 255); // blue
+            }
+            else
+            {
+                chatText.color = new Color32(204, 0, 0, 255); // red
+            }
         }
     }
 
@@ -83,7 +104,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
             return;
         }
 
-        chatClient.PublishMessage("blue", PhotonNetwork.NickName + ": " + inputFieldText.text);
+        chatClient.PublishMessage(chatClient.PublicChannels.ElementAt(1).Key, PhotonNetwork.NickName + ": " + inputFieldText.text);
         inputFieldText.text = "";
     }
 

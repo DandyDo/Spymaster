@@ -86,7 +86,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        MenuManager.Instance.OpenMenu("room");
+        MenuManager.Instance.OpenMenu("Room");
         roomNameText.text = "Room: " + PhotonNetwork.CurrentRoom.Name;
 
         Player[] players = PhotonNetwork.PlayerList;
