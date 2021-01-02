@@ -14,8 +14,10 @@ public class Timing : MonoBehaviour
     bool playerAllowedToChangeLocation = true; //player can only change location once per day
     int numberOfDays;
     int daysPassed = 0;
-    int minutesPerDay;
+    public int minutesPerDay;
     public TMP_Text dayLabel;
+
+    public bool movedToday;
 
     public Menu endGameMenu;
     // Start is called before the first frame update
@@ -23,8 +25,9 @@ public class Timing : MonoBehaviour
     {
         numberOfDays = (int)PlayerPrefs.GetFloat("numberOfDays");
         minutesPerDay = (int)PlayerPrefs.GetFloat("minutesPerDay");
-        PlayerPrefs.GetInt("playerAllowedToChangeLocation", 1);//1 = true 0 = false
+        PlayerPrefs.SetInt("playerAllowedToChangeLocation", 1);//1 = true 0 = false
         dayLabel.text = "Day: 1";
+        movedToday = false;
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class Timing : MonoBehaviour
     {
         timer += Time.deltaTime; //getting the time for the timer
         seconds = (int)(timer % 60); //seconds
-        minutes = (int)(timer / 60); //minutese
+        minutes = (int)(timer / 60); //minutes
 
         //check if numbnerOfDays has been reached and end game if so
         if(daysPassed == numberOfDays)
@@ -44,6 +47,7 @@ public class Timing : MonoBehaviour
         if (minutes == minutesPerDay)
         {
             PlayerPrefs.SetInt("playerAllowedToChangeLocation", 1);
+            movedToday = false;
             timer = 0;
             //seconds = 0;
             //minutes = 0;

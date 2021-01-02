@@ -7,15 +7,14 @@ using UnityEngine.UI;
 public class GPSBypass : MonoBehaviour
 {
     public TMP_Text GPSLocationDisplay;
-
-
+    public Timing timerClass;
     public void changeLocation(string location)
     {
-        Debug.Log("playerAllowedToChangeLocation = " + PlayerPrefs.GetInt("playerAllowedToChangeLocation"));
-        if (PlayerPrefs.GetInt("playerAllowedToChangeLocation") == 1)//1 = true 0 = false
+        Debug.Log("movedToday: " + timerClass.movedToday);
+        //Debug.Log("playerAllowedToChangeLocation = " + PlayerPrefs.GetInt("playerAllowedToChangeLocation"));
+        if (timerClass.movedToday == false)
         {
             GPSLocationDisplay.text = " GPS Location: " + location;
-            //PlayerPrefs.SetInt("playerAllowedToChangeLocation", 0);//1 = true 0 = false
         }
         
     }

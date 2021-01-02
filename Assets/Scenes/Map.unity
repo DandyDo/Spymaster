@@ -3965,6 +3965,7 @@ MonoBehaviour:
   - {fileID: 964887204}
   - {fileID: 1107800125}
   - {fileID: 2016169044}
+  timerClass: {fileID: 1982292910}
 --- !u!1001 &470356583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12460,6 +12461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GPSLocationDisplay: {fileID: 1701887879}
+  timerClass: {fileID: 1982292910}
 --- !u!1 &1365206785
 GameObject:
   m_ObjectHideFlags: 0
@@ -16402,7 +16404,9 @@ MonoBehaviour:
   minutes: 0
   seconds: 0
   timerText: {fileID: 783262700}
+  minutesPerDay: 0
   dayLabel: {fileID: 1352063949}
+  movedToday: 0
   endGameMenu: {fileID: 769818478}
 --- !u!1 &1988387358
 GameObject:
