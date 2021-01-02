@@ -11,7 +11,13 @@ public class GPSBypass : MonoBehaviour
 
     public void changeLocation(string location)
     {
-        GPSLocationDisplay.text = " GPS Location: " + location;
+        Debug.Log("playerAllowedToChangeLocation = " + PlayerPrefs.GetInt("playerAllowedToChangeLocation"));
+        if (PlayerPrefs.GetInt("playerAllowedToChangeLocation") == 1)//1 = true 0 = false
+        {
+            GPSLocationDisplay.text = " GPS Location: " + location;
+            PlayerPrefs.SetInt("playerAllowedToChangeLocation", 0);//1 = true 0 = false
+        }
+        
     }
 
     // Start is called before the first frame update

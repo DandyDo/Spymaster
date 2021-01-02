@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : MonoBehaviour
+public class LocationInNode : MonoBehaviour
 {
-    public List<LocationInNode> Nodes = new List<LocationInNode>();
     public string name;
+    public List<GameObject> LocationsYouCanGoToFromCurrentLocation = new List<GameObject>();
+
+    //LocationInNode thisLocation;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //thisLocation = this;
+        //name = this.gameObject.name;
     }
 
     // Update is called once per frame

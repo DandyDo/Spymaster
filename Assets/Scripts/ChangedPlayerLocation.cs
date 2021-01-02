@@ -19,7 +19,18 @@ public class ChangedPlayerLocation : MonoBehaviour
     void Start()
     {
         locationTextFromGPS = GpsLcoationText.text.Substring(15);
+        MapLocationText.text = " Map Location: " + locationTextFromGPS;
 
+        float step = playerIconMovementSpeed * Time.deltaTime;
+        foreach (GameObject location in locations)
+        {
+            if (location.name == locationTextFromGPS )//player can only change location once per day
+            {
+                //move icon over time instead of instantly
+                PlayerOnMap.transform.position = Vector3.MoveTowards(PlayerOnMap.transform.position, location.transform.position, step);
+                
+            }
+        }
     }
 
     // Update is called once per frame
@@ -32,10 +43,12 @@ public class ChangedPlayerLocation : MonoBehaviour
 
         foreach (GameObject location in locations)
         {
-            if (location.name == locationTextFromGPS)
+            if (location.name == locationTextFromGPS && 
+                PlayerPrefs.GetInt("playerAllowedToChangeLocation") == 1)//player can only change location once per day
             {
                 //move icon over time instead of instantly
                 PlayerOnMap.transform.position = Vector3.MoveTowards(PlayerOnMap.transform.position, location.transform.position, step);
+                PlayerPrefs.SetInt("playerAllowedToChangeLocation", 0);//1 = true 0 = false
             }
         }
     }

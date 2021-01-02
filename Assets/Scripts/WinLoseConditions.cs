@@ -11,7 +11,7 @@ public class WinLoseConditions : MonoBehaviour
 
     public int team1score = 0;
     public int team2score = 0;
-    int winningScore;
+    public int winningScore;
     int numberOfDays;
     int minutesPerDay;
     
@@ -32,10 +32,8 @@ public class WinLoseConditions : MonoBehaviour
         winningScore = (int)PlayerPrefs.GetFloat("pointsToWin");
         numberOfDays = (int)PlayerPrefs.GetFloat("numberOfDays");
         minutesPerDay = (int)PlayerPrefs.GetFloat("minutesPerDay");
-        
-        
-
     }
+
     public void quit() //quits back to the main menu
     {
         SceneManager.LoadScene("MainMenu");
@@ -109,6 +107,7 @@ public class WinLoseConditions : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    Timing GameEnder;
     //increasing scores
     public void increaseTeam1Score(int amountToIncreaseBy)
     {
@@ -119,7 +118,8 @@ public class WinLoseConditions : MonoBehaviour
             //load winning scene
             //would like to make sure this shows who won the game
             team1won = true;
-            SceneManager.LoadScene("WinningScene");
+            //SceneManager.LoadScene("WinningScene");
+            GameEnder.endGame();
         }
     }
 
@@ -131,7 +131,8 @@ public class WinLoseConditions : MonoBehaviour
         {
             //load winning scene
             team2won = true;
-            SceneManager.LoadScene("LosingScene");
+            //SceneManager.LoadScene("LosingScene");
+            GameEnder.endGame();
         }
     }
     // Start is called before the first frame update
