@@ -107,7 +107,7 @@ public class WinLoseConditions : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    Timing GameEnder;
+    public Timing GameEnder;
     //increasing scores
     public void increaseTeam1Score(int amountToIncreaseBy)
     {

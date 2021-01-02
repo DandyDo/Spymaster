@@ -18,6 +18,7 @@ public class ChangedPlayerLocation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("playerAllowedToChangeLocation", 1);//1 = true 0 = false
         locationTextFromGPS = GpsLcoationText.text.Substring(15);
         MapLocationText.text = " Map Location: " + locationTextFromGPS;
 
@@ -43,7 +44,7 @@ public class ChangedPlayerLocation : MonoBehaviour
 
         foreach (GameObject location in locations)
         {
-            if (location.name == locationTextFromGPS && 
+            if (location.name == locationTextFromGPS  && 
                 PlayerPrefs.GetInt("playerAllowedToChangeLocation") == 1)//player can only change location once per day
             {
                 //move icon over time instead of instantly

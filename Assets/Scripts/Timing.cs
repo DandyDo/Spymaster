@@ -23,7 +23,7 @@ public class Timing : MonoBehaviour
     {
         numberOfDays = (int)PlayerPrefs.GetFloat("numberOfDays");
         minutesPerDay = (int)PlayerPrefs.GetFloat("minutesPerDay");
-        PlayerPrefs.SetInt("playerAllowedToChangeLocation", 1);//1 = true 0 = false
+        PlayerPrefs.GetInt("playerAllowedToChangeLocation", 1);//1 = true 0 = false
         dayLabel.text = "Day: 1";
     }
 
@@ -65,6 +65,6 @@ public class Timing : MonoBehaviour
     public void endGame()
     {
         //Debug.LogError("Game end not implemented!");
-        endGameMenu.gameObject.SetActive(true);
+        endGameMenu.Open();
     }
 }

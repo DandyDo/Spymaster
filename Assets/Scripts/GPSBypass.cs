@@ -15,7 +15,7 @@ public class GPSBypass : MonoBehaviour
         if (PlayerPrefs.GetInt("playerAllowedToChangeLocation") == 1)//1 = true 0 = false
         {
             GPSLocationDisplay.text = " GPS Location: " + location;
-            PlayerPrefs.SetInt("playerAllowedToChangeLocation", 0);//1 = true 0 = false
+            //PlayerPrefs.SetInt("playerAllowedToChangeLocation", 0);//1 = true 0 = false
         }
         
     }
